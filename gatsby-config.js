@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `QH Wiki site`,
+    title: `QH Wiki`,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [{
