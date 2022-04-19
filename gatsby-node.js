@@ -14,12 +14,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   }
         allContentfulSeoEntry {
-          edges {
-            node {
-              title
-              slug
-            }
-          }
+         nodes {
+      content {
+        raw
+      }
+      title
+      slug
+    }
         }
       }
     `)
@@ -34,11 +35,12 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     });
 
-    data.allContentfulSeoEntry.edges.forEach(edge => {
+    data.allContentfulSeoEntry.nodes.forEach(node => {
         actions.createPage({
-            path: '/seo/' + edge.node.slug,
-            component: path.resolve('./src/templates/content.js'),
-            context: { slug: edge.node.slug }
+            path: '/seo/' + node.slug,
+            component: require.resolve('./src/templates/content.js'),
+            context: { slug: node.slug, data: { node } },
+            defer: true,
         })
     });
 
