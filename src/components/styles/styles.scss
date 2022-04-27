@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@100;400;700;900&display=swap");
+
+$content: "Roboto",
+sans-serif;
+$title: "Poppins",
+sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $content;
+    color: #333;
+}
+
+.wrapper {
+    width: 80%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.gutter {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    &-sm {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    &-lg {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+}
+
+.well {
+    padding-left: 6rem;
+    padding-right: 6rem;
+
+    &.l {
+        padding-left: 6rem;
+        padding-right: 0;
+    }
+
+    &.r {
+        padding-right: 6rem;
+        padding-left: 0;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gradient-grey {
+    background: rgb(241, 241, 241);
+    background: linear-gradient(90deg, rgba(241, 241, 241, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: $title;
+    margin-bottom: 3rem;
+
+    p {
+        font-size: inherit;
+    }
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+
+.white {
+    background-color: #fff;
+}

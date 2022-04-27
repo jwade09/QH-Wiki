@@ -1,40 +1,27 @@
 import * as React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import Nav from "../components/nav"
+import { Link } from "gatsby"
 
 const IndexPage = () => {
-
-  const { allContentfulEmailTemplate, allContentfulSeoEntry } = useStaticQuery(
-    graphql`
-    {
-        allContentfulEmailTemplate {
-          nodes {
-            title
-            slug
-          }
-        }
-        allContentfulSeoEntry {
-          nodes {
-            title
-            slug
-          }
-        }
-    }
-  `)
 
   return (
     <main>
       <Header></Header>
-      <h1>Hello world!</h1>
-      <p>Email templates</p>
-      {allContentfulEmailTemplate.nodes.map(node => (
-        <div><Link key={node.slug} to={`/email/${node.slug}`}>{node.title}</Link><br /></div>
-      ))}
-      <p>SEO</p>
-      {allContentfulSeoEntry.nodes.map(node => (
-        <div><Link key={node.slug} to={`/seo/${node.slug}`}>{node.title}</Link><br /></div>
-      ))}
+      <section class="gradient-grey">
+        <div class="wrapper flex">
+          <Nav></Nav>
+          <div class="content white well gutter">
+            <h1>Welcome to the Quantum Health Wiki</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis lorem mauris, et pretium augue ornare sed. Nunc gravida, justo ac luctus mollis, nibh risus euismod elit, in tincidunt odio nibh sit amet ante.</p>
+            <div class="flex">
+              <Link></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer></Footer>
     </main>
   )

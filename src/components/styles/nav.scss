@@ -1,0 +1,26 @@
+nav {
+    width: 26%;
+
+    p {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 0 0 1rem 0;
+    }
+
+    .nav-block {
+        margin-bottom: 2rem;
+    }
+
+    .nav-item {
+        border-left: solid 2px #ccc;
+
+        a {
+            font-size: 1.3rem;
+            padding: .6rem 0 .6rem 0;
+            margin-left: 2rem;
+            text-decoration: none;
+            display: block;
+            color: #333
+        }
+    }
+}
