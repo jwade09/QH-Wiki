@@ -15,8 +15,6 @@ const Footer = () => {
 
   return (
     <main>
-      <title>{data.site.siteMetadata.title}</title>
-      <h1>Footer test</h1>
     </main>
   )
 }
