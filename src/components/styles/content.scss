@@ -62,5 +62,13 @@
             color: #fff;
         }
     }
-
+}
+.rich-content{
+    img{
+        border: solid 1px #ccc;
+        background-color: #f1f1f1;
+        padding: 1rem;
+        max-width: 60%;
+        margin-bottom: 1rem;
+    }
 }

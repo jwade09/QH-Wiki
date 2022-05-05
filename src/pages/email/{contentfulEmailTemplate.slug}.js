@@ -59,7 +59,7 @@ const EmailPage = (props, key) => {
                         <div class="flex justify-content">
                             <div class={image ? "grid-2" : ''}>
                                 <h1>{documentToReactComponents(JSON.parse(props.data.contentfulEmailTemplate.header.raw))}</h1>
-                                <div>{documentToReactComponents(JSON.parse(props.data.contentfulEmailTemplate.content.raw), options)}</div>
+                                <div class="rich-content">{documentToReactComponents(JSON.parse(props.data.contentfulEmailTemplate.content.raw), options)}</div>
                             </div>
                             {image ? <div class="grid-2"><GatsbyImage image={image} alt={props.data.contentfulEmailTemplate.templateExample.description} /></div> : ''}
                         </div>

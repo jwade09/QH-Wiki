@@ -17,6 +17,15 @@ const SeoPage = (props) => {
             [INLINES.HYPERLINK]: (node, children) => {
                 return <a href={node.data.uri}>{children}</a>
             },
+            [BLOCKS.EMBEDDED_ASSET]: node => {
+                const imageID = node.data.target.sys.id;
+                const {
+                    file: { url },
+                    title
+                } = props.data.contentfulSeoEntry.content.references.find(({ contentful_id: id }) => id === imageID);
+                return <img src={url} alt={title} class="block" />
+
+            }
         }
     }
 
@@ -41,7 +50,7 @@ const SeoPage = (props) => {
                     <div class="content white well gutter seo flex justify-content">
                         <div class={image ? "grid-2" : ''}>
                             <h1>{documentToReactComponents(JSON.parse(props.data.contentfulSeoEntry.header.raw))}</h1>
-                            <div>{documentToReactComponents(JSON.parse(props.data.contentfulSeoEntry.content.raw), RICHTEXT_OPTIONS)}</div>
+                            <div class="rich-content">{documentToReactComponents(JSON.parse(props.data.contentfulSeoEntry.content.raw), RICHTEXT_OPTIONS)}</div>
                         </div>
                         {image ? <div class="grid-2"><GatsbyImage image={image} alt={props.data.contentfulSeoEntry.templateExample.description} /></div> : ''}
 
@@ -61,8 +70,17 @@ export const query = graphql`
             title
             slug
             content{
-                raw
-            }
+                            raw
+                            references {
+                            ... on ContentfulAsset {
+                                contentful_id
+                                title
+                                file {
+                                    url
+                                }
+                            }
+                            }
+                        }
             templateExample {
                 gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
                 description

@@ -29,7 +29,7 @@ const Header = () => {
                 <img src={logo} />
               </div>
               <div class="slash">/</div>
-              <div class="wiki">WIKI</div>
+              <div class="wiki">MARKETING WIKI</div>
             </Link>
           </div>
         </div>
