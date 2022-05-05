@@ -15,7 +15,6 @@ const EmailPage = (props, key) => {
             },
             [INLINES.HYPERLINK]: (node, children) => {
                 const site = node.data.uri
-
                 return (
                     <>
                         {site.includes("local") ?
@@ -27,8 +26,12 @@ const EmailPage = (props, key) => {
                 )
             },
             [BLOCKS.EMBEDDED_ASSET]: node => {
-                console.log(node);
-                return <img src="{ok.jpg}" />
+                const imageID = node.data.target.sys.id;
+                const {
+                    file: { url },
+                    title
+                } = props.data.contentfulEmailTemplate.content.references.find(({ contentful_id: id }) => id === imageID);
+                return <img src={url} alt={title} />
 
             }
         }
@@ -37,7 +40,7 @@ const EmailPage = (props, key) => {
 
 
 
-    const image = getImage(props.data.contentfulEmailTemplate.templateExample)
+    const image = getImage(props.data.contentfulEmailTemplate.templateExample);
     return (
         <div>
             <Header></Header>
@@ -83,8 +86,13 @@ export const query = graphql`
                         content{
                             raw
                             references {
-                                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-                                description
+                            ... on ContentfulAsset {
+                                contentful_id
+                                title
+                                file {
+                                    url
+                                }
+                            }
                             }
                         }
                         templateExample {
@@ -110,5 +118,4 @@ export const query = graphql`
                 }
 
                 `
-console.log(query);
 export default EmailPage
