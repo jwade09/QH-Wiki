@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `QH Wiki`,
-    siteUrl: `qhwiki.gatsbyjs.io`
+    siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [{
     resolve: 'gatsby-source-contentful',
