@@ -20,7 +20,7 @@ const IndexPage = (props) => {
           </nav>
           <div class="content white well gutter">
             <h1>Welcome to the Quantum Health Wiki</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis lorem mauris, et pretium augue ornare sed. Nunc gravida, justo ac luctus mollis, nibh risus euismod elit, in tincidunt odio nibh sit amet ante.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis lorem mauris, et pretium augue ornare sed. Nunc gravida, justo ac luctus mollis, nibh risus euismod elit, in tincidunt odio nibh sit amet ante. Test</p>
             <div class="flex">
               <Link></Link>
             </div>
